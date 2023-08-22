@@ -21,6 +21,7 @@ class mUser(models.Model):
     
 class Product(models.Model):
 
+    seller = models.ForeignKey(mUser, null=True, on_delete=models.CASCADE)
     name = models.CharField(max_length=100, null=True)
     description = models.TextField(blank=True, null=True)
     condition = models.CharField(max_length=30, null=True, blank=False)
@@ -29,6 +30,7 @@ class Product(models.Model):
 
     
 class Address(models.Model):
+    product = models.ForeignKey(Product, on_delete=models.SET_NULL, blank=True, null=True)
     city = models.CharField(max_length=50, null=True)
     province = models.CharField(max_length=50, null=True)
     zipcode = models.CharField(max_length=100, null=True)
