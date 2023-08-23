@@ -1,0 +1,84 @@
+{% extends 'market/main.html' %}
+
+{% load static %}
+
+{% block content %}
+
+{% if page == 'register' %}
+<h1> Register page</h1>
+
+
+    <form method="POST" action="">
+
+        {% csrf_token %}
+        {% for field in form %}
+
+            <div class="form-group" style="text-align: left;">
+            <label for="room_name">{{field.label}}</label>
+            <br>
+            {{field}}
+            </div>
+
+        {% endfor %}
+
+        
+        <button type="submit">sign up</button>
+
+    </form>
+
+
+    
+
+{% else %}
+
+
+
+    <div style="text-align: left;">
+        <h1> Login page</h1>
+
+        <form method="POST" action="">
+            {% csrf_token %}
+
+            {% for field in form %}
+
+                <div class="form-group" style="text-align: left;">
+                <label for="room_name">{{field.label}}</label>
+                <br>
+                {{field}}
+                </div>
+
+            {% endfor %}
+
+            <button type="submit">Login</button>
+
+
+            <!-- <div >
+                <label>Email:</label>
+                <br>
+                <input id="email" type="email" placeholder="Enter your email">
+            </div>
+            <br>
+            <div>
+                <label>Password:</label>
+                <br>
+                <input id="password" type="password" placeholder="Enter you password">
+            </div>
+            <br>
+            <button type="submit">Login</button> -->
+    
+    
+        </form>
+
+
+    </div>
+    
+
+    
+
+
+
+{% endif %}
+
+
+
+{% endblock content %}
