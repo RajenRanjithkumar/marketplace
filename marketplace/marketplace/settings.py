@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "market.apps.MarketConfig",
-    "phonenumber_field"
+    "phonenumber_field",
     
 ]
 
@@ -84,6 +84,9 @@ DATABASES = {
     }
 }
 
+
+# Our custom User model
+AUTH_USER_MODEL = 'market.mUser'
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
